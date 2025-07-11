@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rhbank/static/css/main.da8d79fa.css",
+    "main.js": "/rhbank/static/js/main.f3e91e4c.js",
+    "static/js/453.670e15c7.chunk.js": "/rhbank/static/js/453.670e15c7.chunk.js",
+    "index.html": "/rhbank/index.html",
+    "main.da8d79fa.css.map": "/rhbank/static/css/main.da8d79fa.css.map",
+    "main.f3e91e4c.js.map": "/rhbank/static/js/main.f3e91e4c.js.map",
+    "453.670e15c7.chunk.js.map": "/rhbank/static/js/453.670e15c7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da8d79fa.css",
+    "static/js/main.f3e91e4c.js"
+  ]
+}
