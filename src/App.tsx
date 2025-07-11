@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/rhbank">
       <ThemeProvider>
         <div className="App">
           <Routes>
