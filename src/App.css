@@ -1,46 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+
+:root {
+  --primary-color: #ee0000; /* Red Hat Red */
+  --background-color: #f8f8f8;
+  --surface-color: #ffffff;
+  --text-color: #000000; /* Black */
+  --text-color-light: #ffffff;
+  --text-color-secondary: #6a6a6a; /* Darker grey for secondary text */
+  --border-color: #e0e0e0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  /* Dark Mode Variables */
+  --dark-background-color: #1a1a1a;
+  --dark-surface-color: #2c2c2c;
+  --dark-text-color: #ffffff;
+  --dark-text-color-secondary: #b0b0b0;
+  --dark-border-color: #444444;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: 'Manrope', sans-serif;
   margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: var(--dark-background-color);
+  color: var(--dark-text-color);
+}
+
+body.dark .App {
+  background-color: var(--dark-surface-color);
+  box-shadow: 0 0 20px rgba(255,255,255,0.05);
+}
+
+body.dark .dashboard-header {
+  border-bottom-color: var(--dark-border-color);
+}
+
+body.dark .balance-section .balance {
+  color: var(--dark-text-color);
+}
+
+body.dark .transaction-list li {
+  border-bottom-color: var(--dark-border-color);
+}
+
+body.dark .bottom-nav {
+  border-top-color: var(--dark-border-color);
+  background-color: var(--dark-surface-color);
+}
+
+body.dark .nav-item {
+  color: var(--dark-text-color-secondary);
+}
+
+body.dark .nav-item.active {
+  color: var(--primary-color);
 }
 
 .App {
-  text-align: center;
-}
-
-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 420px; /* Mobile-first design */
+  margin: 0 auto;
+  background-color: var(--surface-color);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 main {
-  padding: 20px;
+  flex-grow: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-form div {
-  margin-bottom: 15px;
-  text-align: left;
+/* Login Page Styles */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  padding: 2rem;
+  text-align: center;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.logo-section {
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
+.login-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
-button {
-  padding: 10px 15px;
+.login-container p {
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.login-container input {
+  background-color: transparent;
   border: none;
-  background-color: #61dafb;
-  cursor: pointer;
-  font-size: 16px;
+  border-bottom: 1px solid var(--text-color-light);
+  color: var(--text-color-light);
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
 }
 
-button:hover {
-  background-color: #4fa8c8;
+.login-container input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-container button {
+  background-color: var(--surface-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 25px;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Dashboard Styles */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-header h1 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.balance-section {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.balance-section p {
+  margin: 0 0.5rem 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.balance-section .balance {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-color-light);
+}
+
+.transaction-section h2 {
+  font-size: 1rem;
+  margin: 0 1.5rem 1rem 1.5rem;
+  color: var(--text-color-secondary);
+  font-weight: 500;
+}
+
+.transaction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.transaction-list li:last-child {
+  border-bottom: none;
+}
+
+.transaction-list .transaction-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-list .transaction-details span:first-child {
+  font-weight: 500;
+}
+
+.transaction-list .transaction-details span:last-child {
+  color: var(--text-color-secondary);
+  font-size: 0.9rem;
+}
+
+.transaction-list .transaction-amount {
+  font-weight: 700;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--border-color);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body.dark .bottom-nav {
+  background-color: var(--dark-border-color);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-color-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+}
+
+.nav-item svg {
+  margin-bottom: 0.25rem;
+}
+
+/* Theme Toggle Switch */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
 }
